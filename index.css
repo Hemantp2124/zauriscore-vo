@@ -1,0 +1,11 @@
+/* Basic styles for ZauriScore */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Additional custom styles can be added here */
