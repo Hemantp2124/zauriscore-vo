@@ -4,7 +4,7 @@ import { OAuth2Client } from 'google-auth-library';
 const googleClient = new OAuth2Client(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  `${process.env.VERCEL_URL || 'http://localhost:3000'}/auth/google/callback`
+  `https://zauriscore-vo.vercel.app/api/auth/google/callback`
 );
 
 export default async function handler(req, res) {
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     const authUrl = googleClient.generateAuthUrl({
       access_type: 'offline',
       scope: ['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'],
-      redirect_uri: `${process.env.VERCEL_URL || 'http://localhost:3000'}/auth/google/callback`
+      redirect_uri: `https://zauriscore-vo.vercel.app/api/auth/google/callback`
     });
 
     res.status(200).json({ url: authUrl });

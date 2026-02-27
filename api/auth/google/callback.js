@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 const googleClient = new OAuth2Client(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  `${process.env.VERCEL_URL || 'http://localhost:3000'}/auth/google/callback`
+  `https://zauriscore-vo.vercel.app/api/auth/google/callback`
 );
 
 export default async function handler(req, res) {
@@ -68,7 +68,7 @@ export default async function handler(req, res) {
     })).toString('base64');
 
     // Redirect to frontend with token
-    const redirectUrl = `${process.env.FRONTEND_URL || 'https://zauriscore.vercel.app'}?token=${sessionToken}`;
+    const redirectUrl = `${process.env.FRONTEND_URL || 'https://www.zauriscore.com'}?token=${sessionToken}`;
     res.redirect(redirectUrl);
 
   } catch (error) {
