@@ -4,38 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx server.ts",
-    "build": "prisma generate && vite build",
-    "start": "node server.ts",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@google/genai": "^1.40.0",
-    "@prisma/client": "^5.22.0",
-    "cors": "^2.8.6",
-    "dotenv": "^17.3.1",
-    "express": "^5.2.1",
-    "google-auth-library": "^10.6.1",
-    "html2canvas": "1.4.1",
-    "jspdf": "^4.2.0",
-    "jszip": "3.10.1",
-    "lucide-react": "^0.563.0",
-    "prisma": "^5.22.0",
     "react": "^19.2.4",
+    "@google/genai": "^1.40.0",
+    "lucide-react": "^0.563.0",
     "react-dom": "^19.2.4",
-    "react-markdown": "9.0.1",
-    "resend": "^6.9.2",
-    "stripe": "^20.4.0",
-    "vite": "^6.2.0"
+    "jspdf": "2.5.1",
+    "html2canvas": "1.4.1",
+    "jszip": "3.10.1",
+    "react-markdown": "9.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
-    "autoprefixer": "^10.4.27",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.19",
-    "tsx": "^4.21.0",
-    "typescript": "~5.8.2"
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
   }
 }

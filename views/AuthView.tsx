@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../components/Button';
 import { Card } from '../components/Card';
 import { ArrowLeft, Mail, Lock, User, CheckCircle, AlertCircle, Clock } from 'lucide-react';
-import { api } from '../services/api';
 
 interface AuthViewProps {
-  onLogin: (email: string, name: string, user?: any) => void;
+  onLogin: (email: string, name: string) => void;
   onBack: () => void;
 }
 
@@ -29,26 +28,6 @@ export const AuthView: React.FC<AuthViewProps> = ({ onLogin, onBack }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [resetSent, setResetSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      // Validate origin
-      const origin = event.origin;
-      if (!origin.endsWith('.run.app') && !origin.includes('localhost')) {
-        return;
-      }
-
-      if (event.data?.type === 'OAUTH_AUTH_SUCCESS') {
-        const userData = event.data.user;
-        if (userData) {
-          onLogin(userData.email, userData.name, userData);
-        }
-      }
-    };
-
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, [onLogin]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,30 +60,9 @@ export const AuthView: React.FC<AuthViewProps> = ({ onLogin, onBack }) => {
 
   const handleGoogleLogin = async () => {
     setIsLoading(true);
-    setError(null);
-    try {
-      const url = await api.getGoogleAuthUrl();
-      const width = 600;
-      const height = 700;
-      const left = window.screenX + (window.outerWidth - width) / 2;
-      const top = window.screenY + (window.outerHeight - height) / 2;
-      
-      const authWindow = window.open(
-        url,
-        'google_oauth_popup',
-        `width=${width},height=${height},left=${left},top=${top}`
-      );
-
-      if (!authWindow) {
-        setError("Popup blocked. Please allow popups for this site.");
-        setIsLoading(false);
-      }
-      // The message listener in useEffect will handle the success
-    } catch (err: any) {
-      console.error(err);
-      setError("Failed to initialize Google login.");
-      setIsLoading(false);
-    }
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    onLogin("google_user@example.com", "Google User");
+    setIsLoading(false);
   };
 
   const handleModeSwitch = (newMode: AuthMode) => {

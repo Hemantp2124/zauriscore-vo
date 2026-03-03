@@ -1,7 +1,7 @@
 import { UserProfile, ValidationReport, MOCK_REPORT, CustomModelConfig } from "../types";
 import { GoogleGenAI, Type } from "@google/genai";
 
-const API_URL = (import.meta as any).env.VITE_API_URL || "https://zauriscore-vo.vercel.app/api";
+const API_URL = "http://localhost:4242/api";
 
 export const api = {
   // --- AI ---
@@ -492,13 +492,6 @@ The JSON must strictly match this schema:
   },
 
   // --- Auth & User ---
-  getGoogleAuthUrl: async (): Promise<string> => {
-    const res = await fetch(`${API_URL}/auth/google/url`);
-    if (!res.ok) throw new Error('Failed to get Google Auth URL');
-    const { url } = await res.json();
-    return url;
-  },
-
   login: async (email: string, name: string): Promise<UserProfile> => {
     try {
       const res = await fetch(`${API_URL}/users/login`, {
