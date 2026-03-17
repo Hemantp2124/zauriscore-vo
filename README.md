@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# ZaurisCore-VO
 
-# Run and deploy your AI Studio app
+## Project Purpose
+ZaurisCore-VO is an AI-powered startup validation platform designed to help entrepreneurs efficiently validate their business ideas, improve market fit, and reduce the risk of failure.
 
-This contains everything you need to run your app locally.
+## Key Features
+- **AI-Powered Insights**: Leverage AI algorithms to derive insights from market data, user feedback, and competitor analysis.
+- **Validation Tools**: Access tools for conducting surveys, interviews, and market experiments to gather real user feedback.
+- **User-Friendly Interface**: Intuitive UI to facilitate easy navigation and seamless user experience.
+- **Collaboration Features**: Enable teams to collaborate on idea validation and share insights in real-time.
 
-View your app in AI Studio: https://ai.studio/apps/3d6b70e9-9fdc-4f19-becb-886ee8d98934
+## Target Audience
+ZaurisCore-VO is tailored for entrepreneurs, startups, and innovation teams looking to validate their business concepts and ensure they are addressing real market needs.
 
-## Run Locally
+## Tech Stack
+- **Frontend**: React
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **AI & Machine Learning**: TensorFlow, Scikit-Learn
 
-**Prerequisites:**  Node.js
+## Current Status
+As of March 2026, ZaurisCore-VO is in the beta stage, with users actively providing feedback to refine features and improve the platform.
 
+## Development Setup
+1. Clone the repository using `git clone https://github.com/Hemantp2124/zauriscore-vo.git`
+2. Navigate to the project directory: `cd zauriscore-vo`
+3. Install dependencies: `npm install`
+4. Run the application: `npm start`
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Feel free to contribute to the project by submitting issues or pull requests!
